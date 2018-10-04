@@ -1,17 +1,16 @@
 package: dynpick_driver
-components:
-  - name: "Dynpick Force Sensor"
-    description: "Dynpick Force-Torque-Sensor"
-    type: driver/force/dynpick
-    roslaunch: start.launch
-    configuration:
-      - datatype: string
-        name: ip
-        namespace: ''
-        default: 192.168.0.4
+name: "Dynpick Force Sensor"
+description: "Dynpick Force-Torque-Sensor"
+type: driver/force/dynpick
+roslaunch: start.launch
+configuration:
+  - id: ip
+    namespace: ''
+    name: 'IP'
+    description: 'IP address of the Force Sensor'
+    datatype: string # types: int, double, bool, string
+    default: 192.168.0.4
 nodes:
   - node_callerid: /VirtualPortRedirection
     type: socat_script.sh
-yaml_config_folder: module_config/yaml
 status_topic: /dynpick_node/status
-
