@@ -11,6 +11,8 @@
         args="$(arg ip) $(arg port) /tmp/YPort"
         output="screen"/>
 
+    <node name="flange_to_fts_publisher" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 ee_link $(arg sensor_frame_id) 200" />
+
     <include file="$(find dynpick_driver)/launch/driver.launch">
         <arg name="device" value="/tmp/YPort" />
         <arg name="topic" value="wrench" />
